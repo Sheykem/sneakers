@@ -1,8 +1,8 @@
-import Card from "./components/Card.jsx";
-import Drawer from "./components/Drawer.jsx";
-import Header from "./components/Header.jsx";
+import Card from "./components/Card";
+import Drawer from "./components/Drawer";
+import Header from "./components/Header";
 
-function App() {
+function App(props) {
   return (
     <div className="wrapper clear">
       <Drawer />
@@ -16,10 +16,15 @@ function App() {
           </div>
         </div>
         <div className="d-flex">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {props.data.map((el, i) => (
+            <Card
+              title={el.title}
+              price={el.price}
+              imgUrl={el.imgUrl}
+              key={i}
+              onClickAdd={() => console.log(el)}
+            />
+          ))}
         </div>
       </div>
     </div>
