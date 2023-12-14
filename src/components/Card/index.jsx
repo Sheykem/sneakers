@@ -1,11 +1,27 @@
 import React from "react";
-import styles from './Card.module.scss';
+import styles from "./Card.module.scss";
 
-function Card({ title = "название", price = "отсутсвует ", imgUrl , onClickAdd}) {
+function Card({
+  title = "название",
+  price = "отсутсвует ",
+  imgUrl,
+  onClickFavorite,
+  onClickPlus,
+}) {
+  const [isAdded, setIsAdded] = React.useState(false);
+
+  const hendleOnClickPlus = () => {
+    onClickPlus({ title, price, imgUrl });
+    setIsAdded(!isAdded);
+  };
+
+  // React.useEffect(() => {
+  //   console.log("переменная изминилась");
+  // }, [isAdded]);
 
   return (
     <div className={styles.card}>
-      <img src="/img/likeUnliked.svg" alt="like" />
+      <img onClick={onClickFavorite} src="/img/likeUnliked.svg" alt="like" />
       <img width={133} height={112} src={imgUrl} alt="Sneakers" />
       <h5>{title}</h5>
       <div className="d-flex justify-between align-center">
@@ -13,9 +29,12 @@ function Card({ title = "название", price = "отсутсвует ", img
           <span>Цена:</span>
           <b>{price} грн.</b>
         </div>
-        <button  className={styles.button} onClick={onClickAdd}>
-          <img width={32} height={32} src="/img/plus.svg" alt="Add" />
-        </button>
+        <img
+          onClick={hendleOnClickPlus}
+          className={styles.plus}
+          src={isAdded ? "/img/complitBuy.svg" : "/img/plus.svg"}
+          alt="Add"
+        />
       </div>
     </div>
   );
