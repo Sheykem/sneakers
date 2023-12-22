@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./Header.module.scss";
 
-const Header = ({ onClickCart }) => {
+const Header = ({ openDrawer }) => {
   return (
     <header className="d-flex justify-between align-center p-40">
       <div className="d-flex align-center">
@@ -13,7 +12,7 @@ const Header = ({ onClickCart }) => {
       </div>
 
       <ul className="d-flex ">
-        <li onClick={onClickCart} className="mr-30 cu-p">
+        <li onClick={openDrawer} className="mr-30 cu-p">
           <img width={18} height={18} src="/img/cart.svg" alt="" />
           <span>1000 грн</span>
         </li>

@@ -5,19 +5,16 @@ function Card({
   title = "название",
   price = "отсутсвует ",
   imgUrl,
+  id,
   onClickFavorite,
   onClickPlus,
 }) {
   const [isAdded, setIsAdded] = React.useState(false);
 
   const hendleOnClickPlus = () => {
-    onClickPlus({ title, price, imgUrl });
+    onClickPlus({ title, price, imgUrl, id });
     setIsAdded(!isAdded);
   };
-
-  // React.useEffect(() => {
-  //   console.log("переменная изминилась");
-  // }, [isAdded]);
 
   return (
     <div className={styles.card}>
