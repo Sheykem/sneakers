@@ -31,7 +31,7 @@ const Drawer = ({ onCloseCart, cartItems = [], removeSneakers }) => {
                 />
                 <div className="mr-20">
                   <p className="mb-5">{obj.title}</p>
-                  <b>{obj.price}</b>
+                  <b>{obj.price} грн.</b>
                 </div>
                 <img
                   className={styles.btnRemove}
@@ -43,19 +43,19 @@ const Drawer = ({ onCloseCart, cartItems = [], removeSneakers }) => {
             ))}
           </div>
         ) : (
-          <div class="zeroDrawer d-flex align-center justify-center flex-column flex">
+          <div className="zeroDrawer d-flex align-center justify-center flex-column flex">
             <img
-              class="mb-20"
+              className="mb-20"
               width="120px"
               height="120px"
               src="/img/empty-cart.jpg"
               alt="Empty"
             />
             <h2>Корзина пустая</h2>
-            <p class="opacity-6">
+            <p className="opacity-6">
               Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.
             </p>
-            <button onClick={onCloseCart} class="greenButton">
+            <button onClick={onCloseCart} className="greenButton">
               <img
                 className="mr-10 cu-p"
                 src="/img/arrowBack.svg"

@@ -10,15 +10,26 @@ function Card({
   onClickPlus,
 }) {
   const [isAdded, setIsAdded] = React.useState(false);
+  const [isFavorite, setIsFavorite] = React.useState(false);
 
   const hendleOnClickPlus = () => {
     onClickPlus({ title, price, imgUrl, id });
     setIsAdded(!isAdded);
   };
 
+  const hendleClickFavorite = () => {
+    onClickFavorite({ title, price, imgUrl, id });
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div className={styles.card}>
-      <img onClick={onClickFavorite} src="/img/likeUnliked.svg" alt="like" />
+      <img
+        className="cu-p"
+        onClick={hendleClickFavorite}
+        src={isFavorite ? "/img/likeLiked.svg" : "/img/likeUnliked.svg"}
+        alt="like"
+      />
       <img width={133} height={112} src={imgUrl} alt="Sneakers" />
       <h5>{title}</h5>
       <div className="d-flex justify-between align-center">
